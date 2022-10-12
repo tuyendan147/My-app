@@ -20,13 +20,13 @@ const ModalCreateTable = ({
   openUpdate = false,
   togleModal = () => {},
   getList,
-  idUpdate
+  idUpdate,
 }) => {
   const [createEmployeeList, setCreateEmployeeList] = useState({
-    name: '',
-    dept: '',
-    phone: '',
-    address: ''
+    name: "",
+    dept: "",
+    phone: "",
+    address: "",
   });
   const toggleOff = useCallback(() => {
     togleModal();
@@ -83,7 +83,6 @@ const ModalCreateTable = ({
   }, [idUpdate]);
 
   const notify = (message) => toast.success(message);
-
   return (
     <div>
       <ToastContainer />
@@ -99,7 +98,7 @@ const ModalCreateTable = ({
                 type="text"
                 name="name"
                 placeholder="Name"
-                defaultValue={createEmployeeList.name || ''}
+                defaultValue={createEmployeeList.name || ""}
                 onChange={(e) => handleChange(e)}
                 valid={createEmployeeList.name}
               />
@@ -111,7 +110,7 @@ const ModalCreateTable = ({
                 type="text"
                 name="dept"
                 placeholder="Dept"
-                defaultValue={createEmployeeList.dept || ''}
+                defaultValue={createEmployeeList.dept || ""}
                 onChange={(e) => handleChange(e)}
                 valid={createEmployeeList.dept}
               />
@@ -123,7 +122,7 @@ const ModalCreateTable = ({
                 type="number"
                 name="phone"
                 placeholder="Phone"
-                defaultValue={createEmployeeList?.phone || ''}
+                defaultValue={createEmployeeList?.phone || ""}
                 onChange={(e) => handleChange(e)}
                 valid={createEmployeeList?.phone}
               />
@@ -135,7 +134,7 @@ const ModalCreateTable = ({
                 type="text"
                 name="address"
                 placeholder="Address"
-                defaultValue={createEmployeeList?.address || ''}
+                defaultValue={createEmployeeList?.address || ""}
                 onChange={(e) => handleChange(e)}
                 valid={createEmployeeList?.address}
               />
@@ -146,9 +145,15 @@ const ModalCreateTable = ({
           <Button
             color="primary"
             onClick={idUpdate ? updateDataEmployee : createDataEmployee}
+            disabled={
+              !(createEmployeeList.name &&
+                createEmployeeList.dept &&
+                createEmployeeList.phone &&
+                createEmployeeList.address)
+            }
           >
             Ok
-          </Button>{" "}
+          </Button>
           <Button color="secondary" onClick={toggleOff}>
             Cancel
           </Button>
