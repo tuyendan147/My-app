@@ -28,7 +28,7 @@ const ModalCreateTable = ({
     phone: "",
     address: "",
   });
-  const [dataEmployeeList,setDataEmployeeList] = useState({})
+  const [dataEmployeeList, setDataEmployeeList] = useState({})
   const toggleOff = useCallback(() => {
     togleModal();
   }, []);
@@ -117,7 +117,7 @@ const ModalCreateTable = ({
                 type="text"
                 name="name"
                 placeholder="Name"
-                defaultValue={createEmployeeList.name || ""}
+                value={createEmployeeList.name || ""}
                 onChange={(e) => handleChange(e)}
                 valid={createEmployeeList.name}
               />
@@ -129,7 +129,7 @@ const ModalCreateTable = ({
                 type="text"
                 name="dept"
                 placeholder="Dept"
-                defaultValue={createEmployeeList.dept || ""}
+                value={createEmployeeList.dept || ""}
                 onChange={(e) => handleChange(e)}
                 valid={createEmployeeList.dept}
               />
@@ -141,7 +141,7 @@ const ModalCreateTable = ({
                 type="number"
                 name="phone"
                 placeholder="Phone"
-                defaultValue={createEmployeeList?.phone || ""}
+                value={createEmployeeList?.phone || ""}
                 onChange={(e) => handleChange(e)}
                 valid={createEmployeeList?.phone}
               />
@@ -153,7 +153,7 @@ const ModalCreateTable = ({
                 type="text"
                 name="address"
                 placeholder="Address"
-                defaultValue={createEmployeeList?.address || ""}
+                value={createEmployeeList?.address || ""}
                 onChange={(e) => handleChange(e)}
                 valid={createEmployeeList?.address}
               />
