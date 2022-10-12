@@ -6,7 +6,7 @@ const EmployeeTable = ({ listData, togleModal, deleteData }) => {
     <Table striped bordered hover className="tableFont">
       <thead>
         <tr>
-          <th>UUID</th>
+          <th>No</th>
           <th>name</th>
           <th>dept</th>
           <th>phone </th>
