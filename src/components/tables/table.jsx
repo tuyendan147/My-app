@@ -3,7 +3,7 @@ import { Table, Button } from "reactstrap";
 
 const EmployeeTable = ({ listData, togleModal, deleteData }) => {
   return (
-    <Table striped bordered hover className="tableFont">
+    <Table striped bordered hover className="tableFont ">
       <thead>
         <tr>
           <th>No</th>
