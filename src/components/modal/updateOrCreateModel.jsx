@@ -28,6 +28,7 @@ const ModalCreateTable = ({
     phone: "",
     address: "",
   });
+  const [dataEmployeeList,setDataEmployeeList] = useState({})
   const toggleOff = useCallback(() => {
     togleModal();
   }, []);
@@ -52,9 +53,9 @@ const ModalCreateTable = ({
     }
   };
 
-  const updateDataEmployee = async () => {
+  const updateDataEmployee = async (dataUpdate) => {
     try {
-      const data = await callApi.update(idUpdate, createEmployeeList);
+      const data = await callApi.update(idUpdate, dataUpdate);
       if (data?.message) {
         togleModal();
         notify(data?.message);
@@ -65,11 +66,29 @@ const ModalCreateTable = ({
     }
   };
 
+  const submitData = () => {
+    let dataUpdate = {}
+    if (createEmployeeList.name !== dataEmployeeList.name) {
+      dataUpdate.name = createEmployeeList.name
+    }
+    if (createEmployeeList.dept !== dataEmployeeList.dept) {
+      dataUpdate.dept = createEmployeeList.dept
+    }
+    if (createEmployeeList.phone !== dataEmployeeList.phone) {
+      dataUpdate.phone = createEmployeeList.phone
+    }
+    if (createEmployeeList.address !== dataEmployeeList.address) {
+      dataUpdate.address = createEmployeeList.address
+    }
+    updateDataEmployee(dataUpdate)
+  }
+
   const getDetailEmployees = async (id) => {
     try {
       const data = await callApi.get(id);
       if (data?.data) {
         setCreateEmployeeList(data?.data);
+        setDataEmployeeList(data?.data)
       }
     } catch (e) {
       console.log(e);
@@ -144,7 +163,7 @@ const ModalCreateTable = ({
         <ModalFooter>
           <Button
             color="primary"
-            onClick={idUpdate ? updateDataEmployee : createDataEmployee}
+            onClick={idUpdate ? submitData : createDataEmployee}
             disabled={
               !(createEmployeeList.name &&
                 createEmployeeList.dept &&
