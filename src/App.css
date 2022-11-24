@@ -24,6 +24,14 @@
   width: 100%;
 }
 
+.bg_white {
+  background-color: red;
+}
+
+.bg_red {
+  background-color: red;
+}
+
 h1 {
   color: black;
 }
