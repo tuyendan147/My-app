@@ -17,6 +17,10 @@ const TableList = () => {
     setIdUpdate(id);
   };
 
+  const functionA = () => {
+    
+  }
+
   const deleteData = async (id) => {
     try {
       const data = await callApi.delete(id);
